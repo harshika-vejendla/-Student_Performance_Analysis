@@ -1,163 +1,78 @@
-📘 Student Performance Analysis
+# 🎓 Student Performance & Achievement Analysis
+
+## 📖 Project Overview
+This project analyzes the key factors influencing student performance, including socio-economic background, parental education, and test preparation. Moving beyond basic visualizations, this analysis employs **statistical hypothesis testing** and **feature engineering** to derive scientifically backed conclusions about educational equity and achievement gaps.
+
+---
+
+## ❓ Business Problem & Objectives
+Educational institutions often struggle to identify which interventions (like test prep courses or lunch subsidies) yield the most significant improvements in student scores.
+This analysis aims to answer:
+1.  **Effectiveness:** Does the "Test Preparation Course" actually lead to statistically significant score improvements?
+2.  **Equity:** How do socio-economic factors (Lunch Type) and Parental Education impact student success?
+3.  **Subject Gaps:** Are students performing consistently across Math, Reading, and Writing, or are there significant "skill gaps"?
+
+---
+
+## 📂 The Dataset
+* **Source:** Student Performance Dataset.
+* **Size:** 1,000 records.
+* **Key Features:**
+    * `math score`, `reading score`, `writing score`: Numerical performance metrics.
+    * `test preparation course`: Completed vs. None.
+    * `parental level of education`: Bachelor's, Master's, High School, etc.
+    * `lunch`: Standard vs. Free/Reduced (a proxy for socio-economic status).
+    * `race/ethnicity`: Demographic groups (Group A - E).
+
+---
+
+## 🛠️ Methodology & Tech Stack
+
+### **Technologies Used**
+* **Python**: Core analysis.
+* **Pandas & NumPy**: Data manipulation and aggregation.
+* **Seaborn & Matplotlib**: Advanced visualization (Distribution plots, Heatmaps, Box plots).
+* **SciPy (`scipy.stats`)**: For statistical hypothesis testing (T-tests).
+
+### **Key Analysis Steps**
+1.  **Feature Engineering**:
+    * Created `total score` and `average score` metrics.
+    * Developed `math_reading_gap` to identify lopsided skill sets.
+    * Generated `performance_band` (Low/Medium/High) to categorize student achievement levels.
+2.  **Statistical Testing**:
+    * Performed an **Independent T-Test** to verify if the difference in scores between students who took the test prep course vs. those who didn't was statistically significant (p-value < 0.05).
+3.  **Multivariate Analysis**:
+    * Analyzed the interaction between Gender, Race, and Test Prep on average scores.
+
+---
+
+## 💡 Key Findings & Insights
+
+### **1. The "Test Prep" Advantage (Statistically Proven)**
+* **Finding:** Students who completed the test preparation course scored significantly higher than those who did not.
+* **Statistical Evidence:** The T-Test yielded a **p-value < 0.05**, rejecting the null hypothesis. This confirms that the score improvement is real and not just due to random chance.
+* **Actionable Insight:** Schools should prioritize funding and access to test preparation courses, as they are a proven lever for performance improvement.
+
+### **2. The "Lunch Gap" (Socio-Economic Impact)**
+* **Finding:** Students with "Standard" lunch consistently outperformed those with "Free/Reduced" lunch across all subjects.
+* **Insight:** Socio-economic status is a strong predictor of academic performance. Interventions must go beyond the classroom (e.g., nutritional support, after-school tutoring) to bridge this equity gap.
+
+### **3. Parental Education Correlation**
+* **Finding:** There is a clear positive correlation between parental education level and student scores. Students whose parents hold a Master's degree achieved the highest median scores.
+* **Insight:** First-generation students or those from lower-education households may require additional mentorship programs to compete on level ground.
+
+### **4. Subject Skill Gaps**
+* **Finding:** Math scores showed a wider variance compared to Reading and Writing.
+* **Insight:** Math appears to be the most "polarizing" subject, suggesting a need for targeted remedial math programs for the lower-performing cohort.
+
+---
+
+## 📊 Visualizations
+The analysis includes the following professional charts:
+* **Score Gap Box Plots:** Visualizing the disparity between Math and Reading/Writing skills.
+* **Correlation Heatmap:** Showing the strong relationship between Reading and Writing scores.
+* **Distribution Plots:** Histograms showing the bell-curve distribution of scores.
+* **Grouped Bar Charts:** Comparing performance by Gender and Lunch type.
+
+---
 
-A Data Analytics Case Study using Python, Seaborn & Statistical Testing
-
-⭐ 1. Project Overview
-
-This project analyzes academic performance of 1,000 students across Math, Reading, and Writing, to understand how demographics, test preparation, socio-economic factors, and parental education impact learning outcomes.
-
-The study uses Python for:
-
-Data cleaning
-
-Feature engineering
-
-Exploratory data analysis
-
-Data visualization
-
-Statistical testing (t-test)
-
-⭐ 2. Dataset Summary
-
-The dataset contains:
-
-gender
-
-race/ethnicity
-
-parental level of education
-
-lunch type (standard, free/reduced)
-
-test preparation course (completed / none)
-
-math score
-
-reading score
-
-writing score
-
-Derived features created:
-
-total score = math + reading + writing
-
-average score = total score / 3
-
-⭐ 3. Tools & Technologies Used
-
-Python: pandas, numpy
-
-Visualization: seaborn, matplotlib
-
-Statistics: scipy.stats (t-test)
-
-Environment: Jupyter Notebook
-
-⭐ 4. Analysis Performed
-✔ Data Loading & Cleaning
-
-Loaded CSV with pandas
-
-Checked dtypes, non-null counts
-
-Computed summary statistics
-
-No missing values found
-
-Created total and average score columns
-
-✔ Exploratory Data Analysis (EDA)
-
-Gender distribution
-
-Score distributions (math/reading/writing)
-
-Boxplot: test preparation vs average score
-
-Race × Gender vs Average Score
-
-Parental education vs Average Score
-
-Lunch type × Gender vs Average Score
-
-✔ Statistical Test
-
-Independent two-sample t-test to evaluate whether completing test preparation significantly increases average scores.
-
-⭐ 5. Business Findings & Insights
-
-Based entirely on the results and charts inside the notebook.
-
-🔹 1. Test preparation significantly boosts performance
-
-Students who completed the test preparation course score notably higher than those who didn’t.
-
-p-value < 0.05 → statistically significant
-
-Difference is real, not due to randomness
-
-Business Impact:
-Schools should invest in or require structured test preparation programs to improve academic outcomes.
-
-🔹 2. Lunch type strongly correlates with performance
-
-Students with standard lunch consistently outperform those with free/reduced lunch across genders.
-
-Interpretation:
-Lunch type is a strong proxy for socio-economic status (SES).
-
-Business Impact:
-Schools should target:
-
-Supplementary coaching
-
-Nutrition support
-
-After-school programs
-for socio-economically disadvantaged students.
-
-🔹 3. Parental education level directly impacts student performance
-
-Higher parental education (associate, bachelor’s, master’s) is linked to higher average scores.
-
-Business Impact:
-Policymakers should:
-
-Develop family education workshops
-
-Engage parents in literacy programs
-
-Provide additional student mentoring for lower-education households
-
-🔹 4. Race/Ethnicity shows performance variation
-
-Your visualizations show:
-
-Group E and Group C students perform highest
-
-Group A generally underperforms
-
-Within several groups, females outperform males
-
-Business Impact:
-Interventions should focus on:
-
-Resource distribution
-
-Curriculum support
-
-Equity-focused academic programs
-
-🔹 5. Gender performance patterns are subject-specific
-
-Females score higher in reading and writing
-
-Math scores are more balanced across genders
-
-Business Impact:
-Teachers can tailor:
-
-Reading/writing encouragement for boys
-
-Math confidence-building for girls
